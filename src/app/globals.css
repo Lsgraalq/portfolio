@@ -1,26 +1,37 @@
 @import "tailwindcss";
+@import 'lenis/dist/lenis.css';
+
+
+@theme {
+  --font-slay: var(--font-slay);
+  --font-regular: var(--font-regular);
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #181616;
+  --foreground: #fffddb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.accent-color {
+  color:#FF3831;
+}
+
+.accent-color-bg {
+  background-color: #FF3831;
+}
+
+* {
+  cursor: none !important;
 }
