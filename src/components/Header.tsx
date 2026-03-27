@@ -168,7 +168,7 @@ function Header() {
   loop          
   muted         
   playsInline   
-  className="fixed bottom-25 left-1/2 -translate-x-1/2 pointer-events-none w-16" 
+  className="fixed bottom-[10%] left-1/2 -translate-x-1/2 pointer-events-none w-16" 
 />
 
         
