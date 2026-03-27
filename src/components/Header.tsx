@@ -157,7 +157,7 @@ function Header() {
             </span>
             </Link>
         </div>
-        <div className="pt-40 flex flex-row justify-between px-6">
+        <div className="pt-25 flex flex-row justify-between px-6">
             <a href='mailto:ilya.merinec@gmail.com' className="text-[#FF3831] font-regular text-sm font-thin">{splitTextIntoSpans("ilya.merinec@gmail.com")}</a>
             <a className="text-[#FF3831] font-regular text-sm font-thin" href="https://www.linkedin.com/in/illia-m-2b3221360/">{splitTextIntoSpans("Linkedin")}</a>
         </div>
@@ -168,7 +168,7 @@ function Header() {
   loop          
   muted         
   playsInline   
-  className="fixed bottom-0 left-1/2 -translate-x-1/2 pointer-events-none w-16" 
+  className="fixed bottom-25 left-1/2 -translate-x-1/2 pointer-events-none w-16" 
 />
 
         
