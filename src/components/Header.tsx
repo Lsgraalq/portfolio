@@ -94,12 +94,12 @@ function Header() {
       {/* TVOJ PÔVODNÝ HEADER */}
       <div className={`md:px-15 px-6 md:grid md:grid-cols-3 fixed top-0 md:pt-10 pt-5 w-full flex flex-row justify-between z-41 transition-all duration-500 ease-in-out ${
         isVisible ? 'opacity-100' : 'opacity-0 z-[-41]'
-      }`}>
+      }`}>  
         <div className="md:col-span-1 hidden md:flex md:flex-col ">
-          <Link href="/works" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular">Works</Link>
-          <Link href="/services" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular">Services</Link>
-          <Link href="/pet-projects" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular">Pet Project</Link>
-          <Link href="/works" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular">Skills</Link>
+          <Link href="/work" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular w-fit">Work</Link>
+          <Link href="/services" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular w-fit">Services</Link>
+          <Link href="/pet-projects" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular w-fit">Pet Project</Link>
+          <Link href="/work" className="text-lg hover:text-[#FF3831] duration-300 transition-all ease-in font-regular w-fit">Skills</Link>
         </div>
         
         <div className="md:text-4xl text-2xl col-span-1 md:text-center text-left items-center flex md:inline uppercase">merinets.xyz</div>
@@ -135,8 +135,8 @@ function Header() {
             <Link href="/" onClick={() => setMenuOpen(false)} className="text-3xl">
             {splitTextIntoSpans("Home")}
             </Link>
-            <Link href="/works" onClick={() => setMenuOpen(false)} className="text-3xl">
-            {splitTextIntoSpans("Works")}
+            <Link href="/work" onClick={() => setMenuOpen(false)} className="text-3xl">
+            {splitTextIntoSpans("Work")}
             </Link>
             <Link href="/services" onClick={() => setMenuOpen(false)} className="text-3xl">
             {splitTextIntoSpans("Services")}

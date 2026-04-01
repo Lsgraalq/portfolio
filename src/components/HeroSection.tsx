@@ -3,6 +3,8 @@
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import StackedCards from './StackedCards';
+
 
 // Split text
 const splitTextIntoSpans = (text: string) => {
@@ -19,8 +21,8 @@ export default function HeroSection() {
   const contentRef = useRef<HTMLDivElement>(null);
   const sloganRef = useRef<HTMLParagraphElement>(null);
 
-  const slogan = "Driven by passion. Built with precision.";
-  const myHexID = "0x6D6572696E657473";
+ 
+  const textWrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     // Init timeline
@@ -62,22 +64,59 @@ export default function HeroSection() {
     }
   }, { scope: containerRef }); 
 
+
+
+
+  useGSAP(() => {
+    // Nájdeme všetky elementy s triedou .card v našom wrappery
+    const cards = gsap.utils.toArray(".card") as HTMLDivElement[];
+    if (cards.length === 0) return;
+     const isMobile = window.innerWidth < 768;
+
+
+
+    // Vytvoríme hlavnú časovú os napojenú na scroll
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: textWrapperRef.current,
+        start: isMobile ? "top 10%" : "top 30%" , // Začne, keď vrch kontajnera príde na vrch obrazovky
+        end: "+=600",    // Ako dlho budeme scrollovať, kým animácia skončí (čím viac, tým pomalšie sa menia karty)
+        scrub: 1,         // Plynulé pretáčanie podľa scrollovania
+        pin: true,
+        markers: true        // Zastaví scrollovanie stránky, kým sa neprehrajú karty
+      },
+    });
+
+    
+
+  }, { scope: containerRef });
+
   return (
-    <section ref={containerRef} className="h-screen pt-30 text-center">
+    <section ref={containerRef} className="h-screen md:pt-45 pt-40 text-center px-5">
       
 
       {/* Main content */}
-      <div ref={contentRef} className="opacity-0">
+      <div ref={contentRef} className="opacity-0 pb-20">
         
-        <h2 className="">
-          {myHexID}
-        </h2>
 
-        <p ref={sloganRef} className="">
-          {splitTextIntoSpans(slogan)}
-        </p>
+        <div ref={sloganRef} className="2xl:text-[100px] 2xl:leading-32 text-[44px] leading-15 lg:text-6xl xl:text-[80px] xl:leading-25 lg:leading-20">
+          {splitTextIntoSpans("Welcome!")} <br className='md:hidden flex'/> {splitTextIntoSpans("I engineer")} <br />
+          {splitTextIntoSpans("complex web")} <br className='md:hidden flex'/> {splitTextIntoSpans("apps and craft")} <br />
+            {splitTextIntoSpans("beautiful digital")} <br className='md:hidden flex'/> {splitTextIntoSpans("experiences")}
+
+        </div>
         
       </div>
+      <div className="md:grid md:grid-cols-2 flex flex-col px-15">
+        <div className="col-span-1 text-2xl leading-9 pt-10 md:text-4xl xl:text-4xl md:leading-12 2xl:text-4xl xl:leading-13 2xl:leading-15" ref={textWrapperRef}>
+A showcase of real-world web applications where clear business objectives are transformed into reliable, revenue-generating digital products.
+        </div>
+        <div className="col-span-1">
+        <StackedCards></StackedCards>
+        </div>
+      </div>
+     
+
     </section>
   );
 }
