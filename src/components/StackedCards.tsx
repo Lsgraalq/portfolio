@@ -32,11 +32,11 @@ export default function StackedCards() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: cardsWrapperRef.current,
-        start: isMobile ? "top 38%" : "top 30%" , // Začne, keď vrch kontajnera príde na vrch obrazovky
+        start: isMobile ? "top 50%" : "top 30%" , // Začne, keď vrch kontajnera príde na vrch obrazovky
         end: "+=600",    // Ako dlho budeme scrollovať, kým animácia skončí (čím viac, tým pomalšie sa menia karty)
         scrub: 1,         // Plynulé pretáčanie podľa scrollovania
         pin: true,
-        markers: true        // Zastaví scrollovanie stránky, kým sa neprehrajú karty
+        markers: false        // Zastaví scrollovanie stránky, kým sa neprehrajú karty
       },
     });
 

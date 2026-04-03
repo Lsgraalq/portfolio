@@ -125,7 +125,7 @@ export default function ParticleCursor() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full hidden md:flex h-full pointer-events-none z-[9999]"
+      className="fixed top-0 left-0 w-full hidden md:flex h-full pointer-events-none z-9999"
     />
   );
 }
